@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/quiz.css')}}">
+</head>
+<body>
+<h1>{{title}}</h1>
+<button onClick="window.location.reload();">Refresh for new questions!</button>
+<form action="\results" method="post">
+    <ol>
+        {% for i in q %}
+            <li>What note is this?</li>
+            <img src="/static/img/{{i.prompt}}.png" width="210" height="150"> <br>
+                <!-- For future, try to figure out how to make the labels work here -->
+                <input type='radio' required="required" name='{{i.prompt}}' value='A' id='A-{{i.prompt}}'><label for="A-{{i.prompt}}">A</label>
+                <input type='radio' required="required" name='{{i.prompt}}' value='B' id="B-{{i.prompt}}"><label for="B-{{i.prompt}}">B</label>
+                <input type='radio' required="required" name='{{i.prompt}}' value='C' id="C-{{i.prompt}}"><label for="C-{{i.prompt}}">C</label>
+                <input type='radio' required="required" name='{{i.prompt}}' value='D' id="D-{{i.prompt}}"><label for="D-{{i.prompt}}">D</label>
+                <input type='radio' required="required" name='{{i.prompt}}' value='E' id="E-{{i.prompt}}"><label for="E-{{i.prompt}}">E</label>
+                <input type='radio' required="required" name='{{i.prompt}}' value='F' id="F-{{i.prompt}}"><label for="F-{{i.prompt}}">F</label>
+                <input type='radio' required="required" name='{{i.prompt}}' value='G' id="G-{{i.prompt}}"><label for="G-{{i.prompt}}">G</label>
+            <br><br>
+        {% endfor %}
+
+    </ol>
+    <input type="submit" class="btn" name="submit" value="Submit" />
+</form>
+</body>
+</html>

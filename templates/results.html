@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/quiz.css')}}">
+</head>
+<body>
+    <h1>Correct Answers: {{correct}}/10</u></h1>
+    <ol>
+
+        {% for i in q %}
+            <li>What note is this?</li>
+            <img src="/static/img/{{i.prompt}}.png" width="210" height="150"> <br>
+        <p>Your Answer: {{i.response}}    Correct Answer: {{i.answer}}</p> <br>
+        {% endfor %}
+
+    </ol>
+<a href="/"><button>Home</button></a>
+</body>
+</html>
