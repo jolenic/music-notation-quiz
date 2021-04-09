@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT app:quiz.py
+web: gunicorn --bind 0.0.0.0:$PORT quiz:app
